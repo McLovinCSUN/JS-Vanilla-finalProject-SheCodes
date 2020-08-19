@@ -17,39 +17,66 @@
             id="searchBar"
             autocomplete="off"
           />
-          <input id="searchBtn" type="submit" name="submit" value="Search" />
+          <button id="searchBtn" type="submit" name="submit" value="Search">
+            Search
+          </button>
         </form>
       </div>
       <div class="info">
         <h1>
           Los Angeles
         </h1>
-        <div>
+        <div id="date">
           Friday 2:27
         </div>
-        <div>
-          Sunny
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="colOne">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="sunny"
-              />
-              92℉ | ℃
-              <div class="colTwo">
-                <div>Percipitation:<span>0%</span></div>
-                <div>Humidity:<span>75%</span></div>
-                <div>Wind: <span>0</span></div>
-              </div>
-            </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <div class="colOne">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+              alt="sunny"
+            />
+            92 <span id="degree">℉ | ℃</span>
+
+            <p>
+              Sunny
+            </p>
+          </div>
+          <div class="colTwo">
+            <div>Percipitation:<span>0%</span></div>
+            <div>Humidity:<span>75%</span></div>
+            <div>Wind: <span>0</span></div>
           </div>
         </div>
       </div>
     </div>
+
     <br />
-    <div class="container" id="bottomContainer"></div>
+    <div class="container" id="bottomContainer">
+      <div class="row">
+        <h2></h2>
+        <div class="col">
+          <div class="colOneBottom">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+              alt="sunny"
+            />
+            <span font-size="6em">92</span>℉ | ℃
+
+            <p>
+              Sunny
+            </p>
+          </div>
+          <div class="colTwo">
+            <div>Percipitation:<span>0%</span></div>
+            <div>Humidity:<span>75%</span></div>
+            <div>Wind: <span>0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

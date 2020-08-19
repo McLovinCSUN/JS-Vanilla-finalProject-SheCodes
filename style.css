@@ -2,15 +2,21 @@ body {
   background: linear-gradient(to bottom, #046f94, #a2d3dc 20%, #f3fafc 100%)
     fixed;
   font-family: arial, sans-serif;
+  color: #ffffff;
 }
+
 .container {
   border-radius: 6px;
-  margin-top: 50px;
+  margin: 30px auto;
   box-shadow: 2px 2px 2px 2px #024359;
   display: block;
   margin: 0 auto;
-  width: 40%;
-  padding: 10px;
+  width: 35%;
+  padding: 20px;
+}
+#degree {
+  position: relative;
+  float: right;
 }
 #topContainer {
   margin-top: 5%;
@@ -18,18 +24,55 @@ body {
   border: 1px solid #30859e;
   padding-bottom: 2%;
 }
+.col {
+  display: flex;
+  flex-direction: row;
+}
 #bottomContainer {
   background-color: #ffffff;
   border: 1px solid #30859e;
+  color: black;
 }
 
-.colTwo,
 #search {
   float: right;
+  padding-right: 5%;
 }
 .colTwo {
-  padding-right: 20%;
+  padding-left: 20%;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 .info {
+  padding-top: 5%;
   padding-left: 5%;
+}
+.row {
+  padding-left: 5%;
+}
+h1 {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+#date {
+  font-size: 1.125rem;
+  opacity: 0.65;
+  font-weight: 400;
+}
+.colOne {
+  font-size: 6rem;
+  font-weight: 700;
+  text-align: left;
+}
+span,
+p {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#searchBtn {
+  background-color: #a2d3dc;
+  color: #ffffff;
+  border: #30859e;
+  border-radius: 2px;
+  height: 20px;
 }
