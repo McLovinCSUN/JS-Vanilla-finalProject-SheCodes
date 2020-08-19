@@ -6,10 +6,50 @@
     <title>WheaterApp🌈</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div id="top"></div>
+    <div class="container" id="topContainer">
+      <div id="searchBar">
+        <form id="search">
+          <input
+            type="search"
+            placeholder="Type City..."
+            class="form"
+            id="searchBar"
+            autocomplete="off"
+          />
+          <input id="searchBtn" type="submit" name="submit" value="Search" />
+        </form>
+      </div>
+      <div class="info">
+        <h1>
+          Los Angeles
+        </h1>
+        <div>
+          Friday 2:27
+        </div>
+        <div>
+          Sunny
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="colOne">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt="sunny"
+              />
+              92℉ | ℃
+              <div class="colTwo">
+                <div>Percipitation:<span>0%</span></div>
+                <div>Humidity:<span>75%</span></div>
+                <div>Wind: <span>0</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <br />
-    <div id="bottom"></div>
+    <div class="container" id="bottomContainer"></div>
+    <script src="index.js"></script>
   </body>
 </html>
