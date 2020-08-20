@@ -81,3 +81,6 @@ p {
   border-radius: 2px;
   height: 20px;
 }
+#description {
+  text-transform: capitalize;
+}
