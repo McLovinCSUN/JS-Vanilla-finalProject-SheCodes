@@ -39,7 +39,10 @@ h1 {
   border: 1px solid #30859e;
   color: black;
 }
-
+.row weather-forecast {
+  display: flex;
+  flex-direction: row;
+}
 #search-bar {
   float: right;
   padding-right: 5%;
@@ -100,4 +103,7 @@ p {
 .weatherTemp .active {
   cursor: default;
   color: #30859e;
+}
+#forecast {
+  padding-left: 35px;
 }
