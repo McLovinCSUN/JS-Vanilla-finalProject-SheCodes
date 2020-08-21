@@ -5,7 +5,10 @@ body {
   font-family: arial, sans-serif;
   color: #ffffff;
 }
-
+h1 {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
 .container {
   border-radius: 6px;
   margin: 30px auto;
@@ -54,10 +57,7 @@ body {
 .row {
   padding-left: 5%;
 }
-h1 {
-  font-weight: 600;
-  font-size: 1.25rem;
-}
+
 #date {
   font-size: 1.125rem;
   opacity: 0.65;
@@ -95,4 +95,9 @@ p {
 #city {
   display: flex;
   flex-direction: row;
+}
+
+.weatherTemp .active {
+  cursor: default;
+  color: #30859e;
 }

@@ -53,40 +53,6 @@ function formatDate(timestamp) {
   }
   return displayDate;
 }
-// let updateCity = document.querySelector("#currentCity");
-// let latitude;
-// let longitude;
-let city = "Los Angeles";
-let apiKey = "4c362e7f4f84ef4ab0ee164594102485";
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
-
-// function search(event) {
-//   event.preventDefault();
-//   let today = new Date();
-
-//   let searchInput = document.querySelector("#form");
-//   let searchInputToLower = searchInput.value
-//     .toLowerCase()
-//     .replace(/\b[a-z]/g, function (letter) {
-//       return letter.toUpperCase();
-//     });
-//   if (searchInputToLower) {
-//     updateCity.innerHTML = searchInputToLower;
-//   } else {
-//     updateCity.innerHTML = `Please type a city...`;
-//   }
-//   searchWeather(searchInputToLower);
-// }
-
-// function handlePosition(response) {
-//   latitude = response.coords.latitude;
-//   longitude = response.coords.longitude;
-//   axios
-//     .get(
-//       `${apiUrl}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`
-//     )
-//     .then(getWeather);
-// }
 
 function getWeather(response) {
   console.log(response.data);
@@ -95,18 +61,18 @@ function getWeather(response) {
   let descriptionElement = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
-  // let form = document.querySelector("#search-bar");
+
   // let tempC = document.querySelector("#temp");
   let dateElement = document.querySelector("#date");
   let country = document.querySelector("#country");
   let city = response.data.name;
   let temp = response.data.main.temp;
   let icon = document.querySelector("#icon");
+  fernTemp = response.data.main.temp;
 
-  // form.addEventListener("submit", search);
   // tempC.addEventListener("click", changeTemp);
   currentCity.innerHTML = city;
-  tempF.innerHTML = Math.round(temp);
+  tempF.innerHTML = Math.round(fernTemp);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -119,7 +85,63 @@ function getWeather(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
-axios.get(`${apiUrl}q=${city}&appid=${apiKey}&units=imperial`).then(getWeather);
+function celTempConversion(event) {
+  event.preventDefault();
+  let tempC = document.querySelector("#temp");
+  celTemp = (fernTemp - 32) * (5 / 9);
+  fernLink.classList.remove("active");
+  celLink.classList.add("active");
+  tempC.innerHTML = Math.round(celTemp);
+}
+
+function fernTempConversion(event) {
+  event.preventDefault();
+  let tempF = document.querySelector("#temp");
+  celLink.classList.remove("active");
+  fernLink.classList.add("active");
+  let fernTemp = (celTemp * 9) / 5 + 32;
+  tempF.innerHTML = Math.round(fernTemp);
+}
+
+function search(city) {
+  let apiKey = "4c362e7f4f84ef4ab0ee164594102485";
+  let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+  axios
+    .get(`${apiUrl}q=${city}&appid=${apiKey}&units=imperial`)
+    .then(getWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#form");
+  search(searchInput.value);
+}
+// let updateCity = document.querySelector("#currentCity");
+// let latitude;
+// let longitude;
+
+// function handlePosition(response) {
+//   latitude = response.coords.latitude;
+//   longitude = response.coords.longitude;
+//   axios
+//     .get(
+//       `${apiUrl}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`
+//     )
+//     .then(getWeather);
+// }
+
+search("Los Angeles");
+let fernTemp = null;
+let celTemp = null;
+let form = document.querySelector("#search-bar");
+form.addEventListener("submit", handleSubmit);
+
+let celLink = document.querySelector("#celLink");
+celLink.addEventListener("click", celTempConversion);
+
+let fernLink = document.querySelector("#fernLink");
+fernLink.addEventListener("click", fernTempConversion);
+
 // function searchWeather(response) {
 //   axios
 //     .get(`${apiUrl}q=${response}&appid=${apiKey}&units=imperial`)
