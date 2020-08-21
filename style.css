@@ -107,3 +107,10 @@ p {
 #forecast {
   padding-left: 35px;
 }
+.code {
+  display: block;
+  margin: 0 auto;
+  width: 35%;
+  text-align: center;
+  color: #024359;
+}
