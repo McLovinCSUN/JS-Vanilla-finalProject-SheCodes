@@ -85,7 +85,7 @@ p {
 #date::first-letter {
   text-transform: capitalize;
 }
-.country {
+.countries {
   text-transform: capitalize;
   font-weight: 600;
   font-size: 1.25rem;

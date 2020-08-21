@@ -101,6 +101,7 @@ function getWeather(response) {
   let country = document.querySelector("#country");
   let city = response.data.name;
   let temp = response.data.main.temp;
+  let icon = document.querySelector("#icon");
 
   // form.addEventListener("submit", search);
   // tempC.addEventListener("click", changeTemp);
@@ -111,6 +112,11 @@ function getWeather(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   country.innerHTML = response.data.sys.country;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 axios.get(`${apiUrl}q=${city}&appid=${apiKey}&units=imperial`).then(getWeather);
