@@ -81,6 +81,18 @@ p {
   border-radius: 2px;
   height: 20px;
 }
-#description {
+#description,
+#date::first-letter {
   text-transform: capitalize;
+}
+.country {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+#city {
+  display: flex;
+  flex-direction: row;
 }
