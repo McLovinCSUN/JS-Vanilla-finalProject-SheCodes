@@ -5,6 +5,17 @@ body {
   font-family: arial, sans-serif;
   color: #ffffff;
 }
+@media only screen and (max-width: 1800px) {
+  #forecast {
+    display: flex;
+    flex-direction: column;
+  }
+  #forecastImg {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
 h1 {
   font-weight: 600;
   font-size: 1.25rem;
@@ -38,6 +49,11 @@ h1 {
   background-color: #ffffff;
   border: 1px solid #30859e;
   color: black;
+}
+#forecastImg {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 .row weather-forecast {
   display: flex;
@@ -104,9 +120,9 @@ p {
   cursor: default;
   color: #30859e;
 }
-#forecast {
+/* #forecast {
   padding-left: 35px;
-}
+} */
 .code {
   display: block;
   margin: 0 auto;
