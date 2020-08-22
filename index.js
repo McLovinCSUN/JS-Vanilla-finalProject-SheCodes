@@ -27,7 +27,8 @@ function getWeather(response) {
   let city = response.data.name;
   let temp = response.data.main.temp;
   let icon = document.querySelector("#icon");
-
+  console.log(response.data);
+  console.log(response.data.name);
   fernTemp = response.data.main.temp;
   currentCity.innerHTML = city;
   tempF.innerHTML = Math.round(fernTemp);
@@ -41,6 +42,8 @@ function getWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(city);
 }
 
 function celTempConversion(event) {
@@ -106,7 +109,6 @@ function formatHours(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
@@ -131,9 +133,6 @@ function search(city) {
   axios
     .get(`${apiUrl}q=${city}&appid=${apiKey}&units=imperial`)
     .then(getWeather);
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayForecast);
 }
 
 function handleSubmit(event) {
@@ -161,7 +160,8 @@ function handlePosition(response) {
   let apiKey = "4c362e7f4f84ef4ab0ee164594102485";
   let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
   let latitude = response.coords.latitude;
-  longitude = response.coords.longitude;
+  let longitude = response.coords.longitude;
+
   axios
     .get(
       `${apiUrl}lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`
@@ -169,7 +169,11 @@ function handlePosition(response) {
     .then(getWeather);
 }
 
-let latitude;
-let longitude;
+function getForecast(city) {
+  let apiKey = "4c362e7f4f84ef4ab0ee164594102485";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 let currentLocation = document.querySelector("#currentLocation");
 currentLocation.addEventListener("click", click);
