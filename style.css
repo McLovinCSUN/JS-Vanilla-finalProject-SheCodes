@@ -114,3 +114,13 @@ p {
   text-align: center;
   color: #024359;
 }
+.underline {
+  text-decoration: none;
+  color: #d73068;
+}
+.socialMedia {
+  display: block;
+  margin: 0 auto;
+  width: 35%;
+  text-align: center;
+}
